@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <header class="popup-header">
+    <div class="title">Discogs Address</div>
+  </header>
+
+  <main id="popup-main">
+    <div id="loading" class="loading hidden">
+      <div class="spinner"></div>
+      <div class="loading-text">Switching address…</div>
+    </div>
+    <div id="address-list"></div>
+    <div id="error" class="error hidden">
+      <div class="error-msg"></div>
+      <details>
+        <summary>Show debug info</summary>
+        <pre class="debug"></pre>
+      </details>
+    </div>
+  </main>
+
+  <footer class="popup-footer">
+    <a href="#" id="manage-link">Manage addresses</a>
+    <span class="footer-sep">·</span>
+    <a href="#" id="ping-link">Ping SW</a>
+  </footer>
+
+  <script src="popup.js"></script>
+</body>
+</html>

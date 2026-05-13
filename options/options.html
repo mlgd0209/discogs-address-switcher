@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Discogs Address Switcher — Options</title>
+  <link rel="stylesheet" href="options.css" />
+</head>
+<body>
+  <header>
+    <h1>Discogs Address Switcher</h1>
+    <p class="subtitle">Manage your saved shipping addresses.</p>
+  </header>
+
+  <main>
+    <section class="toolbar">
+      <button id="add-new" class="btn btn-primary">+ Add Address</button>
+      <div class="toolbar-right">
+        <button id="export-json" class="btn">Export addresses</button>
+        <label for="import-json" class="btn">Import addresses</label>
+        <input type="file" id="import-json" accept="application/json" hidden />
+      </div>
+    </section>
+
+    <section id="address-list" class="address-list">
+      <!-- populated by JS -->
+    </section>
+
+    <section id="editor" class="editor hidden">
+      <h2 id="editor-title">Add Address</h2>
+      <form id="address-form">
+        <input type="hidden" id="f-id" />
+        <div class="row">
+          <label>
+            Label <span class="req">*</span>
+            <input type="text" id="f-label" required placeholder="US — Miami" />
+          </label>
+          <label>
+            Country code (ISO 2) <span class="req">*</span>
+            <input type="text" id="f-countryCode" required maxlength="2" placeholder="US" pattern="[A-Za-z]{2}" />
+          </label>
+        </div>
+        <label>
+          Country (must match Discogs dropdown text) <span class="req">*</span>
+          <input type="text" id="f-countryValue" required placeholder="United States" />
+        </label>
+        <label>
+          Full name <span class="req">*</span>
+          <input type="text" id="f-fullName" required />
+        </label>
+        <label>
+          Address line 1 <span class="req">*</span>
+          <input type="text" id="f-address1" required />
+        </label>
+        <label>
+          Address line 2
+          <input type="text" id="f-address2" />
+        </label>
+        <div class="row">
+          <label>
+            City/Town <span class="req">*</span>
+            <input type="text" id="f-city" required />
+          </label>
+          <label>
+            Region/State
+            <input type="text" id="f-regionState" />
+          </label>
+        </div>
+        <div class="row">
+          <label>
+            Postal code <span class="req">*</span>
+            <input type="text" id="f-postalCode" required />
+          </label>
+          <label>
+            Phone
+            <input type="text" id="f-phone" />
+          </label>
+        </div>
+        <label>
+          Paypal email
+          <input type="email" id="f-paypalEmail" />
+        </label>
+
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary">Save</button>
+          <button type="button" id="cancel-edit" class="btn">Cancel</button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <div id="toast" class="toast hidden"></div>
+
+  <script src="options.js"></script>
+</body>
+</html>

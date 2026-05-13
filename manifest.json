@@ -1,0 +1,34 @@
+{
+  "manifest_version": 3,
+  "name": "Discogs Address Switcher",
+  "version": "0.1.0",
+  "description": "Quickly switch between saved shipping addresses on Discogs without manual edits.",
+  "permissions": ["storage", "tabs"],
+  "host_permissions": ["https://*.discogs.com/*"],
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_title": "Discogs Address Switcher",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "background": {
+    "service_worker": "background/service-worker.js"
+  },
+  "options_page": "options/options.html",
+  "content_scripts": [
+    {
+      "matches": ["https://*.discogs.com/settings/buyer*"],
+      "js": ["content/content.js"],
+      "run_at": "document_idle",
+      "all_frames": false
+    }
+  ]
+}

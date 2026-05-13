@@ -1,0 +1,13 @@
+# OS / editor
+.DS_Store
+.vscode/
+
+# Node
+node_modules/
+
+# Build artifacts
+*.zip
+
+# Local tooling / secrets
+.claude/
+settings.local.json
